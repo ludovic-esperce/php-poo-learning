@@ -23,11 +23,11 @@ Affichez le poids de chaque vélo en grammes.
 ```mermaid
 classDiagram
     class Bicycle {
-        +string $brand
-        +string $model
-        +int $year
-        +string $description
-        +int $weight
+        +$brand: string
+        +$model: string
+        +$year int
+        +$description: string
+        +$weight: int
         +getInfo() string
         +getWeight(bool $inKg) float
         +setWeight(int $weight) void
@@ -61,11 +61,11 @@ Créez des objets des classes Student et `PartTimeStudent`, et appelez toutes le
 ```mermaid
 classDiagram
     class Student {
-        +string $name
-        +string $surname
-        +string $country
-        -float $tuition
-        #int $indexNumber
+        +$name: string
+        +$surname: string
+        +$country: string
+        -$tuition: float
+        #$indexNumber: int
         +getName() string
         +getSurname() string
         +helloWorld() string
@@ -94,9 +94,9 @@ Créez un objet de la classe Product. Affichez toutes les propriétés sur des l
 ```mermaid
 classDiagram
     class Product {
-        -string $description
-        -int $quantity
-        -float $price
+        -$description: string
+        -$quantity: int
+        -$price: float
         +__construct(string $description, int $quantity, float $price)
         +setDescription(string $description) void
         +getDescription() string
@@ -141,29 +141,29 @@ Appelez la méthode getInfo de l’objet User pour voir le résultat ci-dessus.
 
 ```mermaid
 classDiagram
-    interface HasInfo {
+    class HasInfo {
         <<interface>>
         +getInfo() string
     }
 
     class Address {
-        +string street
-        +int number
-        +string city
+        +street: string
+        +number: int
+        +city: string
         +getInfo() string
     }
 
     class Phone {
-        +string prefix
-        +string number
+        +prefix: string
+        +number: string
         +getInfo() string
     }
 
     class User {
-        +string name
-        +string surname
-        -Address address
-        -Phone phone
+        +name: string
+        +surname: string
+        -address: Address
+        -phone: Phone
         +getInfo() string
     }
 
@@ -174,7 +174,7 @@ classDiagram
 
 ## Exercice 5
 
-Créez 3 classes : User, AdminUser et Customer.
+Créez 3 classes : `User`, `Admin` et Customer.
 
 Classe User :
 - Doit avoir 3 propriétés protégées : $name, $surname et $username ;
@@ -190,8 +190,8 @@ Classe Customer:
 - Pour les autres propriétés, créez des méthodes setter et getter ;
 - Créez une méthode location() qui retourne « $city, $state, $country ».
 
-Classe AdminUser :
-- Doit étendre la classe User ;
+Classe `Admin` :
+- Doit hériter de la classe User ;
 - Le constructeur doit avoir les mêmes paramètres que le constructeur parent ;
 - Le constructeur doit définir la valeur de la propriété $is_admin à true.
 - Créez des objets de chaque classe. Affichez le nom complet et la valeur de $is_admin pour chaque objet, et en plus la localisation (ville, état, pays) pour les objets Customer uniquement
